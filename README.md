@@ -5,7 +5,7 @@ In the paper, we conduct an empirical study on Kernel Access Control Vulnerabili
 
 In this repo, we release four software tools developed in our work: 1) [a cve analysis tool](cve-analyzer) to conduct our KACV study 2) [a static analysis tool](static) to detect potentially vulnerable paths, 3) [a clustering-base seed distillation tool](dynamic/distill) to generate high-quality seed programs, and 4) a [kernel fuzzer](dynamic/fuzzing) to reduce false positives of the potential paths reported our static analysis tool. For each tool, we document setup procedures and usage, and provide the corresponding datasets.
 
-We are aiming to get the Functional, Reusable, and Artifact Available badges. 
+We are aiming to get the Functional, Reusable, and Artifacts Available badges. 
 
 ## Authors
 

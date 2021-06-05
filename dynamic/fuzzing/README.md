@@ -1,4 +1,4 @@
-## Fuzzing for ACHyb
+# Fuzzing for ACHyb
 
 Our dynamic analysis tool performs fuzzing to verify the potentially vulnerable paths reported by our static analysis tool.
 
