@@ -1,0 +1,11 @@
+security_ipc_permission
+check_syslog_permissions
+inode_permission
+security_inode_permission
+__inode_permission
+nfs_permission
+security_file_permission
+generic_permission
+security_key_permission
+may_create
+xattr_permission
