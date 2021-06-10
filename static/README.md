@@ -33,6 +33,9 @@ To generate the LLVM bitcode file for a Linux kernel,  just run the following co
 git clone https://github.com/githubhuyang/linux.git
 cd linux
 
+# install dependencies
+sudo apt install make flex bison libelf-dev libssl-dev
+
 # compile kernel source using wllvm
 export LLVM_COMPILER=clang
 export JOBS=8 # the number of jobs processed in parallel
