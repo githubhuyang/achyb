@@ -42,7 +42,7 @@ make ARCH=x86_64 CC=wllvm -j$JOBS
 # extract the bitcode file (vmlinux.bc)
 extract-bc vmlinux
 ```
-To reproduce our results, you may use `myallyesconfig` instead of `defconfig`. However, `defconfig` may significantly reduce the time cost of kernel compilation.
+To reproduce our results, you may use `myallyes_defconfig` instead of `defconfig`. However, `defconfig` may significantly reduce the time cost of kernel compilation.
 
 ### Tool Compilation
 
