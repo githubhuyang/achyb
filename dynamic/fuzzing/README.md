@@ -117,6 +117,6 @@ Just run the following script to start the fuzzing campaign:
 ./run.sh
 ```
 
-The fuzzing progress will be saved in the `achyb_trial_1_workdir/fuzz_progress.png` and ``achyb_trial_1_workdir/fuzz_progress.csv`. The detected vulnerabilities will be saved in the `achyb_trial_1_workdir/crashes` folder.
+The fuzzing progress will be saved in the `achyb_trial_1_workdir/fuzz_progress.png` and `achyb_trial_1_workdir/fuzz_progress.csv`. The detected vulnerabilities will be saved in the `achyb_trial_1_workdir/crashes` folder.
 
 You may modify `run.sh` according to your requirements.  For example, you may set the `CONFIG_PATH` variable to a new configuration file. You may set more trails by increasing the `NUM_TRAILS` variable.
