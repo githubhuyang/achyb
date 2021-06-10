@@ -51,18 +51,21 @@ export CGO_ENABLED
 TARGETGOOS := $(TARGETOS)
 TARGETGOARCH := $(TARGETVMARCH)
 
-GITREV=$(shell git rev-parse HEAD)
-ifeq ("$(shell git diff --shortstat)", "")
-	REV=$(GITREV)
-else
-	REV=$(GITREV)+
-endif
-GITREVDATE=$(shell git log -n 1 --format="%ad")
+# GITREV=$(shell git rev-parse HEAD)
+# ifeq ("$(shell git diff --shortstat)", "")
+#	REV=$(GITREV)
+# else
+#	REV=$(GITREV)+
+# endif
+# GITREVDATE=$(shell git log -n 1 --format="%ad")
+REV="1afe15356a4b7c4259d06a75a9618bf29acf3fa0+"
+GITREVDATE="'Thu Jun 18 16:58:20 2020 +0300'"
 
 # Don't generate symbol table and DWARF debug info.
 # Reduces build time and binary sizes considerably.
 # That's only needed if you use gdb or nm.
 # If you need that, build manually without these flags.
+
 GOFLAGS := "-ldflags=-s -w -X github.com/google/syzkaller/prog.GitRevision=$(REV) -X 'github.com/google/syzkaller/prog.gitRevisionDate=$(GITREVDATE)'"
 
 GOHOSTFLAGS := $(GOFLAGS)
@@ -100,7 +103,7 @@ endif
 	bin/syz-extract bin/syz-fmt \
 	extract generate generate_go generate_sys \
 	format format_go format_cpp format_sys \
-	tidy test test_race check_copyright check_language check_links check_diff \
+	tidy test test_race check_copyright check_language check_links \
 	arch arch_darwin_amd64_host arch_linux_amd64_host \
 	arch_freebsd_amd64_host arch_netbsd_amd64_host \
 	arch_linux_amd64_target arch_linux_386_target \
@@ -328,7 +331,7 @@ presubmit:
 
 presubmit_smoke:
 	$(MAKE) generate
-	$(MAKE) -j100 check_diff check_copyright check_language check_links presubmit_build
+	$(MAKE) -j100 check_copyright check_language check_links presubmit_build
 	$(MAKE) test
 
 presubmit_build:
@@ -409,10 +412,10 @@ check_links:
 
 # Check that the diff is empty. This is meant to be executed after generating
 # and formatting the code to make sure that everything is committed.
-check_diff:
-	@if [ "$(shell git --no-pager diff --name-only)" != "" ]; then \
-		git --no-pager diff; \
-		git --no-pager diff --name-only | \
-			sed "s#.*#&:1:1: The file is not formatted/regenerated. Run 'make generate' and include it into the commit.#g"; \
-		false; \
-	fi
+#check_diff:
+#	@if [ "$(shell git --no-pager diff --name-only)" != "" ]; then \
+#		git --no-pager diff; \
+#		git --no-pager diff --name-only | \
+#			sed "s#.*#&:1:1: The file is not formatted/regenerated. Run 'make generate' and include it into the commit.#g"; \
+#		false; \
+#	fi
