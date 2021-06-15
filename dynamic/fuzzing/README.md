@@ -45,7 +45,7 @@ You need to manually inject invariant checks to the kernel source based on the p
 ```c
 ...
 bool ac = perm_check();
-// if not perm_check was called, just set ac to 0
+// if no perm_check was called, just set ac to 0
 // i.e., bool ac = 0;
 ...
 privileged_function();
