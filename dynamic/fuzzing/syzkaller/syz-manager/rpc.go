@@ -34,6 +34,9 @@ type RPCServer struct {
 	corpusCover  cover.Cover
 	rotator      *prog.Rotator
 	rnd          *rand.Rand
+
+	// ACHYB
+	triggered_kacvs map[string]struct{}
 }
 
 type Fuzzer struct {
@@ -66,7 +69,10 @@ func startRPCServer(mgr *Manager) (int, error) {
 		sandbox:               mgr.cfg.Sandbox,
 		fuzzers:               make(map[string]*Fuzzer),
 		rnd:                   rand.New(rand.NewSource(time.Now().UnixNano())),
+		// ACHYB
+		triggered_kacvs:          make(map[string]struct{}),
 	}
+
 	serv.batchSize = 5
 	if serv.batchSize < mgr.cfg.Procs {
 		serv.batchSize = mgr.cfg.Procs
@@ -305,4 +311,19 @@ func (serv *RPCServer) Poll(a *rpctype.PollArgs, r *rpctype.PollRes) error {
 	log.Logf(4, "poll from %v: candidates=%v inputs=%v maxsignal=%v",
 		a.Name, len(r.Candidates), len(r.NewInputs), len(r.MaxSignal.Elems))
 	return nil
+}
+
+
+func (serv *RPCServer) Trigger(a *rpctype.TriggerArgs, r *rpctype.TriggerRes) error {
+	serv.mu.Lock()
+	defer serv.mu.Unlock()
+
+	r.Has = true
+	if _, ok := serv.triggered_kacvs[a.KACV]; !ok {
+		r.Has = false
+		serv.triggered_kacvs[a.KACV] = struct{}{}
+	}
+
+	return nil
+	
 }

@@ -12,6 +12,9 @@ import (
 	"sync/atomic"
 	"syscall"
 	"time"
+	"strings"
+	// "bufio"
+	"os/exec"
 
 	"github.com/google/syzkaller/pkg/cover"
 	"github.com/google/syzkaller/pkg/hash"
@@ -292,6 +295,39 @@ func (proc *Proc) executeRaw(opts *ipc.ExecOpts, p *prog.Prog, stat Stat) *ipc.P
 	for try := 0; ; try++ {
 		atomic.AddUint64(&proc.fuzzer.stats[stat], 1)
 		output, info, hanged, err := proc.env.Exec(opts, p)
+
+		// ACHYB
+		cmd := exec.Command("dmesg", "-c")
+		output, err1 := cmd.Output()
+
+	    if err1 != nil {
+	        log.Logf(0, "%v", err1.Error())
+	    }
+		
+	    ls := strings.Split(string(output), "\n")
+	    for _, l := range ls {
+	        if strings.Contains(l, "BUG: achyb") {
+	        	s := strings.Index(l, "BUG: achyb")
+	        	l = l[s:]
+
+	        	a := &rpctype.TriggerArgs{
+						KACV:         l,
+				}
+
+				r := &rpctype.TriggerRes{}
+				// r.Has = true
+				if err3 := proc.fuzzer.manager.Call("Manager.Trigger", a, r); err3 != nil {
+					log.Fatalf("Manager.Trigger call failed: %v", err3)
+				}
+
+	        	if !r.Has {
+    				log.Logf(0, "%s", l)
+    			}	
+	        }
+	    }
+
+
+
 		if err != nil {
 			if try > 10 {
 				log.Fatalf("executor %v failed %v times:\n%v", proc.pid, try, err)

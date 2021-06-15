@@ -128,3 +128,12 @@ type RunTestDoneArgs struct {
 	Info   []*ipc.ProgInfo
 	Error  string
 }
+
+// ACHYB
+type TriggerArgs struct {
+	KACV string
+}
+
+type TriggerRes struct {
+	Has bool
+}
