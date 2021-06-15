@@ -52,7 +52,7 @@ privileged_function();
 
 // Invariant check
 if(!ac) {
-	printk("ACHYB-BUG: privileged_function\n");
+	printk("BUG: achyb function_name\n");
 }
 ...
 ```
