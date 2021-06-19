@@ -19,7 +19,7 @@ If you use any part of our tool or dataset present in this repository, please ki
 @inproceedings{yang2021fse,
     title={ACHyb: A Hybrid Analysis Approach to Detect Kernel Access Control Vulnerabilities},
     author={Hu, Yang and Wang, Wenxi and Hunger, Casen and Wood, Riley and Khurshid, Sarfraz and Tiwari, Mohit},
-    booktitle={The ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2021)},
+    booktitle={Proceedings of the 29th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE'21)},
     year={2021},
     organization={ACM}
 }
