@@ -41,7 +41,7 @@ The`cve-analyzer` folder contains the source code of our cve analysis tool; The 
 
 ## VirtualBox Image
 
-For the ease of using our system, we provide a [VirtualBox image](https://drive.google.com/file/d/1_8cNLm3-jq9BX7zGh1UmUSnj2zMjybet/view?usp=sharing) with complete environmental setup. Please load the image via VirtualBox 6.1 or later version with the `Nested VT-x/AMD-V` feature enabled. The username and password for login are `guest`. Source files are saved in the `/home/guest` folder.
+For the ease of using our system, we provide a [VirtualBox image](https://drive.google.com/file/d/1_8cNLm3-jq9BX7zGh1UmUSnj2zMjybet/view?usp=sharing) with complete experimental setup. Please load the image via VirtualBox 6.1 or later version with the `Nested VT-x/AMD-V` feature enabled. The username and password for login are `guest`. Source files are saved in the `/home/guest` folder.
 
 ## Other Links
 
