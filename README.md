@@ -45,7 +45,7 @@ For the ease of using our system, we provide a [VirtualBox image](https://drive.
 
 ## Other Links
 
-#### [Install](INSTALL.md)
+#### [Install/Usage](INSTALL.md)
 
 #### [Requirements](REQUIREMENTS.md)
 
