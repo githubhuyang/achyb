@@ -39,6 +39,10 @@ We arrange the source code of the four software tools in the following directory
 
 The`cve-analyzer` folder contains the source code of our cve analysis tool; The `static` folders contains the source code of our static analysis tool; The `dynamic/distill` contains the source code of our seed distillation tool; The `dynamic/fuzzing` folder contains the source code of our fuzzing tool.
 
+## VM
+
+For the ease of using our system, we provide a [virtualbox image](https://drive.google.com/file/d/1_8cNLm3-jq9BX7zGh1UmUSnj2zMjybet/view?usp=sharing) with complete environmental setup. Please load the image via virtualbox 6.1 or later version with the `Nested VT-x/AMD-V` feature enabled. The username and password for login are `guest`. Source files are saved in the `/home/guest` folder.
+
 ## Other Links
 
 #### [Install](INSTALL.md)
