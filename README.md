@@ -1,4 +1,6 @@
 # ACHyb: A Hybrid Analysis Approach to Detect Kernel Access Control Vulnerabilities
+[![DOI](https://zenodo.org/badge/371857467.svg)](https://zenodo.org/badge/latestdoi/371857467)
+
 ## Intro
 
 In the paper, we conduct an empirical study on Kernel Access Control Vulnerabilities (KACVs) using National Vulnerability Database. Motivated by our study, we focus on detecting two kinds of KACVs: KACV-M and KACV-I. In particular, we present a precise and scalable hybrid analysis approach called `ACHyb` to detect both KACV-M and KACV-I. ACHyb first performs a more precise and more sound static analysis to identify the potentially vulnerable paths, and then applies an efficient dynamic analysis to reduce the false positives of the detected potential paths.
