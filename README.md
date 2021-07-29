@@ -57,4 +57,4 @@ For the ease of using our system, we provide a [VirtualBox image](https://drive.
 
 ## License
 
-[MIT License](license.md)
+[MIT License](LICENSE)
