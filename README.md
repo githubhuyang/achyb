@@ -11,7 +11,7 @@ We got two badges from the Artifact Track of ESEC/FSE'21: [Artifacts Evaluated â
 
 ## Authors
 
-Yang Hu, Wenxi Wang, Casen Hunger, Riley Wood, Sarfraz Khurshid, and Mohit Tiwari
+Yang Hu, Wenxi Wang, Casen Hunger, Riley Wood, Sarfraz Khurshid, Mohit Tiwari
 
 ## Publication
 
